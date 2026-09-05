@@ -1,0 +1,52 @@
+<form [formGroup]="dff.formData">
+
+  <label>Nombre</label>
+  <input formControlName="nombre" />
+
+  <h3>Relaciones Internas</h3>
+  <table formArrayName="internas">
+    <tr>
+      <th>Área o Puesto</th>
+      <th>Para qué</th>
+    </tr>
+    @for (ctrl of dff.formData.controls.internas.controls; track ctrl; let i = $index) {
+      <tr [formGroupName]="i">
+        <td><input formControlName="areaOPuesto" /></td>
+        <td><input formControlName="paraQueAreaOPuesto" /></td>
+      </tr>
+    }
+  </table>
+
+  <h3>Relaciones Externas</h3>
+  <table formArrayName="externas">
+    <tr>
+      <th>Institución</th>
+      <th>Para qué</th>
+    </tr>
+    @for (ctrl of dff.formData.controls.externas.controls; track ctrl; let i = $index) {
+      <tr [formGroupName]="i">
+        <td><input formControlName="institucion" /></td>
+        <td><input formControlName="paraQueInstitucion" /></td>
+      </tr>
+    }
+  </table>
+
+</form>
+
+<form [formGroup]="dff.formUser">
+  <h3>Usuarios</h3>
+  <table formArrayName="externas">
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Edad</th>
+    </tr>
+    @for (ctrl of dff.formUser.controls.externas.controls; track ctrl; let i = $index) {
+      <tr [formGroupName]="i">
+        <td><input formControlName="nombre" /></td>
+        <td><input formControlName="email" /></td>
+        <td><input formControlName="edad" type="number" /></td>
+      </tr>
+    }
+  </table>
+</form>
