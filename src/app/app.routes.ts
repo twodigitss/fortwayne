@@ -20,4 +20,11 @@ export const routes: Routes = [
         (m) => m.DffComponent,
       ),
   },
+  {
+      path: 'down',
+      loadComponent: () =>
+        import('./screens/singleDownloadScreen/sd').then(
+          (m) => m.default,
+        ),
+    },
 ];
